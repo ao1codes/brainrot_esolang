@@ -94,17 +94,87 @@
       top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0,0,0,0.5);
       justify-content: center; align-items: center;
+      overflow-y: auto;
+      padding: 2rem;
+      z-index: 1000;
     }
     #docsModal.open { display: flex; }
     #docsContent {
-      background: #fff; padding: 2rem; border-radius: 6px;
-      max-width: 600px; width: 90%; max-height: 80%; overflow-y: auto;
+      background: #fff; padding: 2rem;
+      border-radius: 6px;
+      max-width: 700px; width: 100%;
+      max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
     #docsContent h2 { margin-top: 0; }
-    #docsContent ul { list-style: none; padding: 0; }
-    #docsContent li { margin-bottom: 0.5rem; }
+    #docsContent h3 {
+      margin-top: 1.5rem;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 0.25rem;
+    }
+    #docsContent dl {
+      margin: 0;
+    }
+    #docsContent dt {
+      font-weight: 700;
+      margin-top: 1rem;
+      font-family: monospace;
+      background: #f3f4f6;
+      display: inline-block;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+    }
+    #docsContent dd {
+      margin-left: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    #docsContent pre {
+      background: #1f2937;
+      color: #d1d5db;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      font-family: monospace;
+    }
+    #docsContent pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      border-radius: 0;
+      display: block;
+      white-space: pre-wrap;
+    }
+    #docsContent p {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
     #docsContent code {
-      background: #f3f4f6; padding: 0.1rem 0.3rem; border-radius: 4px;
+      background: #f3f4f6;
+      padding: 0.15rem 0.3rem;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    /* Function example special style */
+    pre.function-example {
+      background: #f9fafb;
+      color: #111827;
+      border: 1px solid #d1d5db;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+    pre.function-example code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
     }
 
     @media (max-width: 600px) {
@@ -124,6 +194,9 @@
       }
       main {
         margin: 1rem;
+      }
+      #docsContent {
+        padding: 1rem;
       }
     }
   </style>
@@ -160,36 +233,171 @@ skibidi  # prints 2
 
   <div id="docsModal" onclick="hideDocs()">
     <div id="docsContent" onclick="event.stopPropagation()">
-      <h2>Brainrot Commands</h2>
-      <ul>
-        <li><code>rizz</code> : +1</li>
-        <li><code>gyatt</code> : -1</li>
-        <li><code>drip</code> : +5</li>
-        <li><code>npc</code> : -5</li>
-        <li><code>lit</code> : +10</li>
-        <li><code>slaps</code> : -10</li>
-        <li><code>yeet</code> : ×2</li>
-        <li><code>cringe</code> : ÷2 (integer)</li>
-        <li><code>flex</code> : push acc²</li>
-        <li><code>fam</code> : push acc</li>
-        <li><code>peekback</code> : peek stack</li>
-        <li><code>clapback</code> : pop stack to acc</li>
-        <li><code>set &lt;v&gt;</code> : var = acc</li>
-        <li><code>get &lt;v&gt;</code> : acc = var</li>
-        <li><code>spill</code> : input integer</li>
-        <li><code>skibidi</code> : print acc</li>
-        <li><code>no cap</code> : acc = 0</li>
-        <li><code>sus</code> : skip next if acc = 0</li>
-        <li><code>suspect</code> : skip next if acc > 0</li>
-        <li><code>vibe</code> : start loop</li>
-        <li><code>unvibe</code> : end loop</li>
-        <li><code>func &lt;name&gt;</code> : define function</li>
-        <li><code>endfunc</code> : end function</li>
-        <li><code>call &lt;name&gt;</code> : call function</li>
-        <li><code>return</code> : return from function</li>
-        <li><code>load &lt;file&gt;</code> : include file</li>
-        <li><code>mid</code> : no-op</li>
-      </ul>
+      <h2>Brainrot Documentation</h2>
+
+      <section>
+        <h3>Introduction</h3>
+        <p><strong>Brainrot</strong> is a playful esoteric programming language built around a single <em>accumulator</em> (a number you can modify), a stack, and named variables. Its commands have fun, meme-inspired names like <code>rizz</code>, <code>yeet</code>, and <code>sus</code>. You write code line-by-line and use loops, functions, and conditionals to control the flow.</p>
+        <p>The accumulator holds the current numeric value, the stack is a last-in-first-out container for temporary storage, and variables let you save and recall named values.</p>
+      </section>
+
+      <section>
+        <h3>Accumulator Commands</h3>
+        <dl>
+          <dt><code>rizz</code></dt>
+          <dd>Adds 1 to the accumulator.</dd>
+
+          <dt><code>gyatt</code></dt>
+          <dd>Subtracts 1 from the accumulator.</dd>
+
+          <dt><code>drip</code></dt>
+          <dd>Adds 5 to the accumulator.</dd>
+
+          <dt><code>npc</code></dt>
+          <dd>Subtracts 5 from the accumulator.</dd>
+
+          <dt><code>lit</code></dt>
+          <dd>Adds 10 to the accumulator.</dd>
+
+          <dt><code>slaps</code></dt>
+          <dd>Subtracts 10 from the accumulator.</dd>
+
+          <dt><code>yeet</code></dt>
+          <dd>Multiplies the accumulator by 2.</dd>
+
+          <dt><code>cringe</code></dt>
+          <dd>Integer divides the accumulator by 2 (floor division). If the accumulator is zero, does nothing.</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h3>Stack Commands</h3>
+        <dl>
+          <dt><code>flex</code></dt>
+          <dd>Pushes the square of the accumulator (<code>acc * acc</code>) onto the stack.</dd>
+
+          <dt><code>fam</code></dt>
+          <dd>Pushes the current accumulator value onto the stack.</dd>
+
+          <dt><code>peekback</code></dt>
+          <dd>Peeks at the top stack value and loads it into the accumulator without removing it. Raises error if stack is empty.</dd>
+
+          <dt><code>clapback</code></dt>
+          <dd>Pops the top stack value into the accumulator. Raises error if stack is empty.</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h3>Variable Commands</h3>
+        <dl>
+          <dt><code>set &lt;varname&gt;</code></dt>
+          <dd>Stores the current accumulator value into the named variable.</dd>
+
+          <dt><code>get &lt;varname&gt;</code></dt>
+          <dd>Loads the value of the named variable into the accumulator. Raises error if variable is undefined.</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h3>I/O Commands</h3>
+        <dl>
+          <dt><code>spill</code></dt>
+          <dd>Prompts the user to enter an integer and stores it in the accumulator. Errors if input is invalid.</dd>
+
+          <dt><code>skibidi</code></dt>
+          <dd>Prints the current accumulator value to the output.</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h3>Control Flow Commands</h3>
+        <dl>
+          <dt><code>no cap</code></dt>
+          <dd>Resets the accumulator to zero.</dd>
+
+          <dt><code>sus</code></dt>
+          <dd>If the accumulator is zero, skips the next instruction.</dd>
+
+          <dt><code>suspect</code></dt>
+          <dd>If the accumulator is greater than zero, skips the next instruction.</dd>
+
+          <dt><code>vibe</code></dt>
+          <dd>Starts a loop that repeats as long as the accumulator is greater than zero. Use <code>unvibe</code> to end the loop.</dd>
+
+          <dt><code>unvibe</code></dt>
+          <dd>Ends a <code>vibe</code> loop. If the accumulator is still greater than zero, loop continues.</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h3>Function Commands</h3>
+        <dl>
+          <dt><code>func &lt;name&gt;</code></dt>
+          <dd>Defines a function named <code>&lt;name&gt;</code>. The function body continues until <code>endfunc</code>.</dd>
+
+          <dt><code>endfunc</code></dt>
+          <dd>Marks the end of a function definition.</dd>
+
+          <dt><code>call &lt;name&gt;</code></dt>
+          <dd>Calls the function named <code>&lt;name&gt;</code>. Execution jumps to the function body.</dd>
+
+          <dt><code>return</code></dt>
+          <dd>Returns from the current function call to the point after where it was called.</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h3>Other Commands</h3>
+        <dl>
+          <dt><code>load &lt;filename&gt;</code></dt>
+          <dd>Loads and executes Brainrot code from another file.</dd>
+
+          <dt><code>mid</code></dt>
+          <dd>No operation (does nothing).</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h3>Examples</h3>
+
+        <h4>Print 2</h4>
+        <pre><code>rizz
+rizz
+skibidi
+</code></pre>
+        <p>Increment accumulator twice, then print the value <code>2</code>.</p>
+
+        <h4>Loop Example: Print numbers 5 down to 1</h4>
+        <pre><code>lit        # acc = 10
+slaps      # acc = 0 (reset)
+drip       # acc = 5
+vibe       # start loop (while acc > 0)
+  skibidi  # print acc
+  gyatt    # acc -= 1
+unvibe     # end loop
+</code></pre>
+        <p>This loops while the accumulator is positive, printing and decrementing each time.</p>
+
+        <h4>Function Example: Double accumulator</h4>
+        <pre class="function-example"><code>func double
+  yeet
+  return
+endfunc
+
+rizz
+call double
+skibidi
+</code></pre>
+        <p>Defines a function to double the accumulator, calls it after incrementing accumulator, then prints <code>2</code>.</p>
+      </section>
+
+      <section>
+        <h3>Debugging &amp; Tips</h3>
+        <p>Use the <code>--debug</code> flag when running the interpreter to trace execution and see accumulator, stack, variables, and call stack states.</p>
+        <p>Remember, the accumulator starts at 0. Use loops and functions to structure your programs.</p>
+        <p>Keep commands lowercase and separate tokens with spaces.</p>
+      </section>
+
     </div>
   </div>
 
