@@ -88,7 +88,6 @@
       color: #6b7280; font-size: 0.9rem;
     }
 
-    /* Modal */
     #docsModal {
       display: none; position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -157,8 +156,6 @@
       border-radius: 4px;
       font-family: monospace;
     }
-
-    /* Function example special style */
     pre.function-example {
       background: #f9fafb;
       color: #111827;
@@ -176,7 +173,6 @@
       color: inherit;
       padding: 0;
     }
-
     @media (max-width: 600px) {
       .header-content {
         flex-direction: column;
@@ -245,28 +241,67 @@ skibidi  # prints 2
         <h3>Accumulator Commands</h3>
         <dl>
           <dt><code>rizz</code></dt>
-          <dd>Adds 1 to the accumulator.</dd>
+          <dd>
+            Adds 1 to the accumulator.
+            <pre><code>rizz
+skibidi  # prints 1</code></pre>
+          </dd>
 
           <dt><code>gyatt</code></dt>
-          <dd>Subtracts 1 from the accumulator.</dd>
+          <dd>
+            Subtracts 1 from the accumulator.
+            <pre><code>rizz
+rizz
+gyatt
+skibidi  # prints 1</code></pre>
+          </dd>
 
           <dt><code>drip</code></dt>
-          <dd>Adds 5 to the accumulator.</dd>
+          <dd>
+            Adds 5 to the accumulator.
+            <pre><code>drip
+skibidi  # prints 5</code></pre>
+          </dd>
 
           <dt><code>npc</code></dt>
-          <dd>Subtracts 5 from the accumulator.</dd>
+          <dd>
+            Subtracts 5 from the accumulator.
+            <pre><code>drip
+npc
+skibidi  # prints 0</code></pre>
+          </dd>
 
           <dt><code>lit</code></dt>
-          <dd>Adds 10 to the accumulator.</dd>
+          <dd>
+            Adds 10 to the accumulator.
+            <pre><code>lit
+skibidi  # prints 10</code></pre>
+          </dd>
 
           <dt><code>slaps</code></dt>
-          <dd>Subtracts 10 from the accumulator.</dd>
+          <dd>
+            Subtracts 10 from the accumulator.
+            <pre><code>lit
+slaps
+skibidi  # prints 0</code></pre>
+          </dd>
 
           <dt><code>yeet</code></dt>
-          <dd>Multiplies the accumulator by 2.</dd>
+          <dd>
+            Multiplies the accumulator by 2.
+            <pre><code>rizz
+yeet
+skibidi  # prints 2</code></pre>
+          </dd>
 
           <dt><code>cringe</code></dt>
-          <dd>Integer divides the accumulator by 2 (floor division). If the accumulator is zero, does nothing.</dd>
+          <dd>
+            Integer divides the accumulator by 2 (floor division). If accumulator is zero, does nothing.
+            <pre><code>rizz
+rizz
+cringe
+skibidi  # prints 1</code></pre>
+          </dd>
         </dl>
       </section>
 
@@ -274,16 +309,44 @@ skibidi  # prints 2
         <h3>Stack Commands</h3>
         <dl>
           <dt><code>flex</code></dt>
-          <dd>Pushes the square of the accumulator (<code>acc * acc</code>) onto the stack.</dd>
+          <dd>
+            Pushes the square of the accumulator onto the stack.
+            <pre><code>rizz
+flex
+clapback
+skibidi  # prints 1</code></pre>
+          </dd>
 
           <dt><code>fam</code></dt>
-          <dd>Pushes the current accumulator value onto the stack.</dd>
+          <dd>
+            Pushes the current accumulator value onto the stack.
+            <pre><code>rizz
+fam
+clapback
+skibidi  # prints 1</code></pre>
+          </dd>
 
           <dt><code>peekback</code></dt>
-          <dd>Peeks at the top stack value and loads it into the accumulator without removing it. Raises error if stack is empty.</dd>
+          <dd>
+            Peeks at the top stack value and loads it into the accumulator without removing it.
+            <pre><code>rizz
+fam
+drip
+flex
+peekback
+skibidi  # prints 6</code></pre>
+          </dd>
 
           <dt><code>clapback</code></dt>
-          <dd>Pops the top stack value into the accumulator. Raises error if stack is empty.</dd>
+          <dd>
+            Pops the top stack value into the accumulator.
+            <pre><code>rizz
+fam
+drip
+flex
+clapback
+skibidi  # prints 36</code></pre>
+          </dd>
         </dl>
       </section>
 
@@ -291,10 +354,23 @@ skibidi  # prints 2
         <h3>Variable Commands</h3>
         <dl>
           <dt><code>set &lt;varname&gt;</code></dt>
-          <dd>Stores the current accumulator value into the named variable.</dd>
+          <dd>
+            Stores the accumulator value in the named variable.
+            <pre><code>rizz
+set counter
+drip
+get counter
+skibidi  # prints 1</code></pre>
+          </dd>
 
           <dt><code>get &lt;varname&gt;</code></dt>
-          <dd>Loads the value of the named variable into the accumulator. Raises error if variable is undefined.</dd>
+          <dd>
+            Loads the named variable’s value into the accumulator.
+            <pre><code>rizz
+set counter
+get counter
+skibidi  # prints 1</code></pre>
+          </dd>
         </dl>
       </section>
 
@@ -302,10 +378,20 @@ skibidi  # prints 2
         <h3>I/O Commands</h3>
         <dl>
           <dt><code>spill</code></dt>
-          <dd>Prompts the user to enter an integer and stores it in the accumulator. Errors if input is invalid.</dd>
+          <dd>
+            Prompts for integer input and stores it in the accumulator.
+            <pre><code>spill
+# user types “7”
+skibidi  # prints 7</code></pre>
+          </dd>
 
           <dt><code>skibidi</code></dt>
-          <dd>Prints the current accumulator value to the output.</dd>
+          <dd>
+            Prints the accumulator value to output.
+            <pre><code>rizz
+rizz
+skibidi  # prints 2</code></pre>
+          </dd>
         </dl>
       </section>
 
@@ -313,19 +399,46 @@ skibidi  # prints 2
         <h3>Control Flow Commands</h3>
         <dl>
           <dt><code>no cap</code></dt>
-          <dd>Resets the accumulator to zero.</dd>
+          <dd>
+            Resets the accumulator to zero.
+            <pre><code>rizz
+no cap
+skibidi  # prints 0</code></pre>
+          </dd>
 
           <dt><code>sus</code></dt>
-          <dd>If the accumulator is zero, skips the next instruction.</dd>
+          <dd>
+            If accumulator is zero, skips next instruction.
+            <pre><code>no cap
+sus
+rizz
+skibidi  # prints 1</code></pre>
+          </dd>
 
           <dt><code>suspect</code></dt>
-          <dd>If the accumulator is greater than zero, skips the next instruction.</dd>
+          <dd>
+            If accumulator is greater than zero, skips next instruction.
+            <pre><code>rizz
+suspect
+rizz
+skibidi  # prints 1</code></pre>
+          </dd>
+        </dl>
+      </section>
 
-          <dt><code>vibe</code></dt>
-          <dd>Starts a loop that repeats as long as the accumulator is greater than zero. Use <code>unvibe</code> to end the loop.</dd>
-
-          <dt><code>unvibe</code></dt>
-          <dd>Ends a <code>vibe</code> loop. If the accumulator is still greater than zero, loop continues.</dd>
+      <section>
+        <h3>Loops</h3>
+        <dl>
+          <dt><code>vibe</code> … <code>unvibe</code></dt>
+          <dd>
+            Loop while accumulator &gt; 0.
+            <pre><code>rizz
+vibe
+  drip
+  gyatt
+unvibe
+skibidi  # prints 1</code></pre>
+          </dd>
         </dl>
       </section>
 
@@ -333,16 +446,32 @@ skibidi  # prints 2
         <h3>Function Commands</h3>
         <dl>
           <dt><code>func &lt;name&gt;</code></dt>
-          <dd>Defines a function named <code>&lt;name&gt;</code>. The function body continues until <code>endfunc</code>.</dd>
-
-          <dt><code>endfunc</code></dt>
-          <dd>Marks the end of a function definition.</dd>
+          <dd>
+            Defines a function; body ends with <code>endfunc</code>.
+            <pre class="function-example"><code>func repeat_two
+  rizz
+  rizz
+  return
+endfunc</code></pre>
+          </dd>
 
           <dt><code>call &lt;name&gt;</code></dt>
-          <dd>Calls the function named <code>&lt;name&gt;</code>. Execution jumps to the function body.</dd>
+          <dd>
+            Calls the named function.
+            <pre class="function-example"><code>call repeat_two
+skibidi  # prints 2</code></pre>
+          </dd>
 
           <dt><code>return</code></dt>
-          <dd>Returns from the current function call to the point after where it was called.</dd>
+          <dd>
+            Returns from the function to after the call.
+            <pre class="function-example"><code>func foo
+  rizz
+  return
+endfunc
+call foo
+skibidi  # prints 1</code></pre>
+          </dd>
         </dl>
       </section>
 
@@ -350,52 +479,29 @@ skibidi  # prints 2
         <h3>Other Commands</h3>
         <dl>
           <dt><code>load &lt;filename&gt;</code></dt>
-          <dd>Loads and executes Brainrot code from another file.</dd>
+          <dd>
+            Includes and runs another file.
+            <pre><code>load myfile.brn</code></pre>
+          </dd>
 
           <dt><code>mid</code></dt>
-          <dd>No operation (does nothing).</dd>
+          <dd>
+            No operation.
+            <pre><code>mid</code></pre>
+          </dd>
+
+          <dt><code>version</code></dt>
+          <dd>
+            Prints interpreter version.
+            <pre><code>version</code></pre>
+          </dd>
+
+          <dt><code>help</code></dt>
+          <dd>
+            Displays this command list.
+            <pre><code>help</code></pre>
+          </dd>
         </dl>
-      </section>
-
-      <section>
-        <h3>Examples</h3>
-
-        <h4>Print 2</h4>
-        <pre><code>rizz
-rizz
-skibidi
-</code></pre>
-        <p>Increment accumulator twice, then print the value <code>2</code>.</p>
-
-        <h4>Loop Example: Print numbers 5 down to 1</h4>
-        <pre><code>lit        # acc = 10
-slaps      # acc = 0 (reset)
-drip       # acc = 5
-vibe       # start loop (while acc > 0)
-  skibidi  # print acc
-  gyatt    # acc -= 1
-unvibe     # end loop
-</code></pre>
-        <p>This loops while the accumulator is positive, printing and decrementing each time.</p>
-
-        <h4>Function Example: Double accumulator</h4>
-        <pre class="function-example"><code>func double
-  yeet
-  return
-endfunc
-
-rizz
-call double
-skibidi
-</code></pre>
-        <p>Defines a function to double the accumulator, calls it after incrementing accumulator, then prints <code>2</code>.</p>
-      </section>
-
-      <section>
-        <h3>Debugging &amp; Tips</h3>
-        <p>Use the <code>--debug</code> flag when running the interpreter to trace execution and see accumulator, stack, variables, and call stack states.</p>
-        <p>Remember, the accumulator starts at 0. Use loops and functions to structure your programs.</p>
-        <p>Keep commands lowercase and separate tokens with spaces.</p>
       </section>
 
     </div>
