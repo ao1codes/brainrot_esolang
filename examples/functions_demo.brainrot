@@ -1,0 +1,24 @@
+# Example: Functions demo in Brainrot
+
+no cap          # acc = 0
+drip            # acc = 5
+
+call add_one    # call function add_one
+
+skibidi         # print acc (should be 6)
+
+call double_it  # call function double_it
+
+skibidi         # print acc (should be 12)
+
+# End of main program
+
+func add_one
+    rizz        # acc += 1
+    return
+endfunc
+
+func double_it
+    yeet       # acc *= 2
+    return
+endfunc

@@ -1,0 +1,15 @@
+# countdown.brainrot
+
+# get your starting number
+spill           # prompt: spill> 15
+
+# loop while acc > 0
+vibe
+  skibidi       # print current acc
+  gyatt         # decrement by 1
+unvibe
+
+# finally print zero
+skibidi
+
+mid

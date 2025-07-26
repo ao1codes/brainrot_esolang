@@ -1,0 +1,26 @@
+# mid: reset and prep
+no cap
+
+# drip + rizz to get to 6
+drip      # +5 => 5
+rizz      # +1 => 6
+
+# mid: loop print 6 down to 1
+vibe      # start loop acc > 0
+  skibidi # print acc
+  gyatt   # dec by 1
+unvibe    # end loop, back if > 0
+
+# check zero skip
+sus       # acc == 0 so skip next
+drip      # skipped
+skibidi   # print 0
+
+# test multiply & divide
+rizz      # acc = 1
+yeet      # acc = 2
+cringe    # acc = 1
+skibidi   # print 1
+
+# mid: all done
+mid
