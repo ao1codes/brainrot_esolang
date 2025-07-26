@@ -56,17 +56,34 @@
     label {
       font-weight: 600;
     }
-    textarea {
+    textarea, input[type="text"] {
       font-family: monospace; font-size: 1rem;
       padding: 1rem; border: 1px solid #d1d5db;
-      border-radius: 6px; resize: vertical; min-height: 200px;
-      background: #fff; transition: border-color 0.2s ease;
+      border-radius: 6px; background: #fff; 
+      transition: border-color 0.2s ease;
     }
-    textarea:focus {
+    textarea {
+      resize: vertical; min-height: 200px;
+    }
+    textarea:focus, input[type="text"]:focus {
       outline: none;
       border-color: #2563eb;
       box-shadow: 0 0 5px rgba(37,99,235,0.5);
     }
+    
+    .input-section {
+      background: #f3f4f6;
+      padding: 1rem;
+      border-radius: 6px;
+      border: 1px solid #e5e7eb;
+    }
+    .input-help {
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+    
     .run-btn {
       background: #2563eb; color: #fff;
       border: none; padding: 0.75rem 1.25rem;
@@ -209,10 +226,20 @@
     <form method="POST" action="/">
       <label for="code">Enter Brainrot code:</label>
       <textarea id="code" name="code" placeholder="e.g.
-rizz
-rizz
-skibidi  # prints 2
+spill      # user inputs a number
+skibidi    # prints that number
 ">{{ code }}</textarea>
+      
+      <div class="input-section">
+        <label for="inputs">Input values for 'spill' commands:</label>
+        <input type="text" id="inputs" name="inputs" value="{{ inputs }}" 
+               placeholder="e.g. 42, -5, 100" />
+        <div class="input-help">
+          Enter comma-separated integers that will be used by <code>spill</code> commands in order.
+          If your code has multiple <code>spill</code> commands, provide multiple values separated by commas.
+        </div>
+      </div>
+      
       <button type="submit" class="run-btn">Run Code</button>
     </form>
 
@@ -365,7 +392,7 @@ skibidi  # prints 1</code></pre>
 
           <dt><code>get &lt;varname&gt;</code></dt>
           <dd>
-            Loads the named variable’s value into the accumulator.
+            Loads the named variable's value into the accumulator.
             <pre><code>rizz
 set counter
 get counter
@@ -379,10 +406,10 @@ skibidi  # prints 1</code></pre>
         <dl>
           <dt><code>spill</code></dt>
           <dd>
-            Prompts for integer input and stores it in the accumulator.
+            Takes input from the "Input values" field on the web interface. In the command line, prompts for integer input.
             <pre><code>spill
-# user types “7”
-skibidi  # prints 7</code></pre>
+# uses first value from input field
+skibidi  # prints that value</code></pre>
           </dd>
 
           <dt><code>skibidi</code></dt>
@@ -432,12 +459,11 @@ skibidi  # prints 1</code></pre>
           <dt><code>vibe</code> … <code>unvibe</code></dt>
           <dd>
             Loop while accumulator &gt; 0.
-            <pre><code>rizz
+            <pre><code>drip
 vibe
-  drip
+  skibidi
   gyatt
-unvibe
-skibidi  # prints 1</code></pre>
+unvibe</code></pre>
           </dd>
         </dl>
       </section>
@@ -448,9 +474,8 @@ skibidi  # prints 1</code></pre>
           <dt><code>func &lt;name&gt;</code></dt>
           <dd>
             Defines a function; body ends with <code>endfunc</code>.
-            <pre class="function-example"><code>func repeat_two
-  rizz
-  rizz
+            <pre class="function-example"><code>func add_five
+  drip
   return
 endfunc</code></pre>
           </dd>
@@ -458,8 +483,9 @@ endfunc</code></pre>
           <dt><code>call &lt;name&gt;</code></dt>
           <dd>
             Calls the named function.
-            <pre class="function-example"><code>call repeat_two
-skibidi  # prints 2</code></pre>
+            <pre class="function-example"><code>rizz
+call add_five
+skibidi  # prints 6</code></pre>
           </dd>
 
           <dt><code>return</code></dt>
