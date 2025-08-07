@@ -1,3 +1,6 @@
+IF YOU ARE WONDERING WHY THERES ONLY 2 COMMITS, 2 WEEKS AGO I FORCED PUSHED CHANGES ON A DIFFERENT PROJECT DIR WHICH CLEARED ALL MY PREVIOUS COMMITS
+
+
 # 🧠 ao1codes' Brainrot Esolang
 
 A playful little esolang where commands like rizz, yeet, and sus control a number. Write loops, print values, and mess with the accumulator to make fun programs.
